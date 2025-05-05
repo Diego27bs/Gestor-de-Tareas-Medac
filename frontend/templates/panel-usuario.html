@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Panel de Usuario</title>
+
+        <!-- Aquí incluyo tailwind -->
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+
+</head>
+
+<body class="bg-gray-200 p-6">
+
+    <!-- Título principal -->
+    <h1 class="text-xl font-bold text-center text-gray-800 mb-4">
+        ¡Bienvenido, Usuario!
+    </h1>
+
+    <!-- Subtítulo -->
+    <h2 class="text-lg font-semibold text-gray-700 mb-2">Tus tareas pendientes</h2>
+
+    <!-- Lista de tareas -->
+    <ul class="list-disc pl-5 space-y-2 text-gray-600">
+        <li>Tarea pendiente</li>
+        <li>Otra tarea pendiente</li>
+        <li>Otra tarea pendiente</li>
+    </ul>
+
+    <!-- Botón para añadir nueva tarea -->
+    <button id="abrirModal" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 mt-4">
+        Añadir nueva tarea
+    </button>
+
+
+
+    <!-- Modal  -->
+    <div id="modalTarea"
+        class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-200 w-96">
+
+            <!-- Cabecera  -->
+            <div class="bg-gradient-to-br from-blue-500 to-blue-800 text-white py-3 px-6 rounded-lg text-center">
+                <h2 class="text-lg md:text-xl font-bold"> Crear Nueva Tarea</h2>
+            </div>
+            
+            <!-- Formulario -->
+            <form id="formularioTarea" class="mt-4 space-y-4">
+            
+                <!-- Nombre de la tarea -->
+                <div>
+                    <label for="nombreTarea" class="block text-gray-600 text-sm font-medium">Nombre de la tarea</label>
+                    <input type="text" id="nombreTarea" name="nombreTarea" placeholder="Escribe el nombre..."
+                        class="w-full p-3 border rounded-md focus:ring-blue-500 focus:border-blue-500 mt-1.5" required>
+                </div>
+                
+                <!-- Descripción -->
+                <div>
+                    <label for="descripcionTarea" class="block text-gray-600 text-sm font-medium">Descripción</label>
+                    <textarea name="descripcionTarea" placeholder="Añadir una descripción más detallada..."
+                        class="w-full p-3 border rounded-md focus:ring-blue-500 focus:border-blue-500 mt-1.5"></textarea>
+                </div>
+               
+                <!-- Proyecto -->
+                <div>
+                    <label for="proyectoTarea" class="block text-gray-600 text-sm font-medium">Proyecto</label>
+                    <select name="proyectoTarea"
+                        class="w-full p-3 border rounded-md focus:ring-blue-500 focus:border-blue-500 mt-1.5">
+                        <option value="" selected disabled class="text-gray-400">--Selecciona un proyecto--</option>
+                        <option value="proyecto1">Proyecto 1</option>
+                        <option value="proyecto2">Proyecto 2</option>
+                        <option value="proyecto3">Proyecto 3</option>
+                    </select>
+                </div>
+
+                <!-- Fecha de vencimiento -->
+                <div>
+                    <label for="vencimientoTarea" class="block text-gray-600 text-sm font-medium">Fecha de
+                        vencimiento</label>
+                    <input type="date" id="vencimientoTarea" name="vencimientoTarea"
+                        class="w-full p-3 border rounded-md focus:ring-blue-500 focus:border-blue-500 mt-1.5">
+                </div>
+                <!-- Boton cancelar y boton enviar -->
+                <div class="flex justify-between">
+                    <button type="button" id="cerrarModal"
+                        class="bg-gray-400 text-white  p-3 rounded-lg font-semibold uppercase hover:bg-gray-500 transition duration-300 w-1/2 mr-2 hover:scale-105">Cancelar</button>
+                    <button type="submit"
+                        class="bg-gradient-to-bl from-blue-500 to-blue-800  uppercase font-semibold text-white p-3 rounded-lg  hover:scale-105 hover:bg-gradient-to-bl hover:from-blue-600 hover:to-blue-900 transition duration-300 w-1/2 ">Crear
+                        Tarea</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Funcionalidad js modal y fetch -->
+    <script src="/frontend/js/crear-tarea.js"></script>
+
+</body>
+
+</html>
